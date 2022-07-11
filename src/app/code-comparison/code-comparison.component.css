@@ -1,0 +1,11 @@
+.result{
+  height: 23vw;
+  width: 100%
+}
+.ui-inputtext{
+  height: 23vw;
+  max-height: 23vw;
+  max-width: 100%;
+  width: 100%
+}
+

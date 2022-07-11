@@ -1,2 +1,19 @@
-<h1>this is 代码相似度比较</h1>
-<p>code-comparison works!</p>
+<div class="p-grid" >
+  <div class="p-col-4">
+    <p-card header="源文本">
+      <textarea pInputTextarea [(ngModel)]="text1"></textarea>
+    </p-card>
+  </div>
+  <div class="p-col-4">
+    <p-card header="对比文本">
+      <textarea pInputTextarea [(ngModel)]="text2"></textarea>
+    </p-card>
+  </div>
+  <div class="p-col-4">
+    <p-card header="对比结果">
+      <div class="result">
+        <app-char-diff-dialog [text1]="text1" [text2]="text2"></app-char-diff-dialog>
+      </div>
+    </p-card>
+  </div>
+</div>

@@ -5,15 +5,21 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {RouterModule} from '@angular/router';
-import {TabMenuModule} from 'primeng';
+import {CardModule, EditorModule, FieldsetModule, InputTextareaModule, MenubarModule, PaginatorModule, TabMenuModule} from 'primeng';
 import { CodeComparisonComponent } from './code-comparison/code-comparison.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CharDiffDialogComponent } from './code-comparison/char-diff-dialog/char-diff-dialog.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CodeComparisonComponent,
+    CharDiffDialogComponent,
+    SafeHtmlPipe,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     NgxEchartsModule.forRoot({
@@ -21,6 +27,12 @@ import { CodeComparisonComponent } from './code-comparison/code-comparison.compo
     }),
     RouterModule,
     TabMenuModule,
+    EditorModule,
+    PaginatorModule,
+    InputTextareaModule,
+    CardModule,
+    MenubarModule,
+    FieldsetModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,10 @@
+<p-fieldset legend="字符对比" toggleable="true">
+  <div [innerHTML]="charDiffResult | safeHtml"></div>
+</p-fieldset>
+<p-fieldset legend="行对比" toggleable="true">
+  <div [innerHTML]="lineDiffResult | safeHtml"></div>
+</p-fieldset>
+<p-fieldset legend="json对比" toggleable="true">
+  <div [innerHTML]="jsonDiffResult | safeHtml"></div>
+</p-fieldset>
+

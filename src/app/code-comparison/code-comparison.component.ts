@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-code-comparison',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CodeComparisonComponent implements OnInit {
 
-  constructor() { }
+  text1 = ''; // 源
+  text2 = ''; // 宿
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }

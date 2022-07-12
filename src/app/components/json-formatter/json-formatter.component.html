@@ -5,8 +5,10 @@
       <p-footer>
         <button pButton type="button" label="格式化" icon="pi pi-check" style="margin-right: .25em"
                 (click)="format()"></button>
-        <button pButton type="button" label="压缩" class="ui-button-success" icon="pi pi-check" style="margin-right: .25em"
+        <button pButton type="button" label="压缩" class="ui-button-success" icon="pi pi-folder" style="margin-right: .25em"
                 (click)="compress()"></button>
+        <button pButton type="button" label="转xml" class="ui-button-info" icon="pi pi-file" style="margin-right: .25em"
+                (click)="convert2xml()"></button>
         <button pButton type="button" label="清空" icon="pi pi-times" class="ui-button-secondary"
                 (click)="clear()"></button>
       </p-footer>
@@ -17,7 +19,7 @@
       <pre><code [highlight]="formatJson" [lineNumbers]="true" *ngIf="valid"></code></pre>
       <div [innerHTML]="formatJson | safeHtml" *ngIf="!valid"></div>
       <p-footer>
-        <button pButton type="button" label="一键复制" class="ui-button-rounded ui-button-secondary" (click)="copy()" *ngIf="valid"></button>
+        <button pButton type="button" label="一键复制" class="ui-button-rounded ui-button-secondary"  icon="pi pi-copy" (click)="copy()" *ngIf="valid"></button>
       </p-footer>
     </p-card>
   </div>

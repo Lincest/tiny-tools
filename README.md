@@ -18,8 +18,9 @@
 
 - [x] json格式化
 - [x] json高亮
-- [ ] 一键复制
-- [ ] json与xml互转
+- [x] json压缩
+- [x] 一键复制
+- [x] json转xml
 
 ## Deploy
 

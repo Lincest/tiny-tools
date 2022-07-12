@@ -14,6 +14,13 @@
 - [x] 行对比
 - [x] json对比
 
+### json格式化
+
+- [x] json格式化
+- [x] json高亮
+- [ ] 一键复制
+- [ ] json与xml互转
+
 ## Deploy
 
 `ng deploy --base-href=https://blogbak.roccoshi.top/tiny-tools/`

@@ -1,15 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {RouterModule} from '@angular/router';
-import {CardModule, EditorModule, FieldsetModule, InputTextareaModule, MenubarModule, PaginatorModule, TabMenuModule} from 'primeng';
-import { CodeComparisonComponent } from './code-comparison/code-comparison.component';
+import {
+  ButtonModule,
+  CardModule,
+  EditorModule,
+  FieldsetModule,
+  InputTextareaModule,
+  MenubarModule,
+  PaginatorModule,
+  TabMenuModule
+} from 'primeng';
+import {CodeComparisonComponent} from './components/code-comparison/code-comparison.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { CharDiffDialogComponent } from './code-comparison/char-diff-dialog/char-diff-dialog.component';
-import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import {CharDiffDialogComponent} from './components/code-comparison/char-diff-dialog/char-diff-dialog.component';
+import {SafeHtmlPipe} from './pipes/safe-html.pipe';
+import {JsonFormatterComponent} from './components/json-formatter/json-formatter.component';
+import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [
@@ -17,8 +28,10 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     CodeComparisonComponent,
     CharDiffDialogComponent,
     SafeHtmlPipe,
+    JsonFormatterComponent,
   ],
   imports: [
+    HighlightModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
@@ -33,8 +46,17 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     CardModule,
     MenubarModule,
     FieldsetModule,
+    ButtonModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        fullLibraryLoader: () => import('highlight.js'),
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

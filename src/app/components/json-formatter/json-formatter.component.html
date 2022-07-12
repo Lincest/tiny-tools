@@ -1,0 +1,22 @@
+<div class="p-grid">
+  <div class="p-col-6">
+    <p-card header="原始json">
+      <textarea pInputTextarea [(ngModel)]="rawJson"></textarea>
+      <p-footer>
+        <button pButton type="button" label="格式化" icon="pi pi-check" style="margin-right: .25em"
+                (click)="format()"></button>
+        <button pButton type="button" label="清空" icon="pi pi-times" class="ui-button-secondary"
+                (click)="clear()"></button>
+      </p-footer>
+    </p-card>
+  </div>
+  <div class="p-col-6">
+    <p-card header="格式化后json">
+      <p-header>
+
+      </p-header>
+      <pre><code [highlight]="formatJson" [lineNumbers]="true" *ngIf="valid"></code></pre>
+      <div [innerHTML]="formatJson | safeHtml" *ngIf="!valid"></div>
+    </p-card>
+  </div>
+</div>

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {label: '文本变更比较', routerLink: ['code-comparison'], icon: 'pi pi-comment'},
+      {label: 'json格式化', routerLink: ['json-formatter'], icon: 'pi pi-code'},
     ];
   }
 }

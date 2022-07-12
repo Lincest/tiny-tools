@@ -30,6 +30,7 @@
     "echarts": "^5.2.2",
     "highlight.js": "^10.7.3",
     "lodash": "^4.17.21",
+    "ngx-clipboard": "^14.0.2",
     "ngx-echarts": "5.2.2",
     "ngx-highlightjs": "^4.1.4",
     "primeflex": "^2.0.0",

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ClipboardService} from 'ngx-clipboard';
 
 @Component({
   selector: 'app-json-formatter',
@@ -12,7 +13,9 @@ export class JsonFormatterComponent implements OnInit {
 
   valid: boolean;
 
-  constructor() {
+  constructor(
+    private clipboardApi: ClipboardService
+  ) {
   }
 
   ngOnInit(): void {
@@ -33,6 +36,23 @@ export class JsonFormatterComponent implements OnInit {
 
   clear() {
     this.rawJson = '';
+  }
+
+  compress() {
+    try {
+      this.formatJson = JSON.stringify(JSON.parse(this.rawJson));
+      console.log('this.formatJson = ', this.formatJson);
+      this.valid = true;
+    } catch (e) {
+      this.formatJson = `<span style="color: red; white-space: pre-wrap">JSON不合法</span>`;
+      console.log('error format');
+      console.log(e);
+      this.valid = false;
+    }
+  }
+
+  copy() {
+    this.clipboardApi.copy(this.formatJson);
   }
 
 }

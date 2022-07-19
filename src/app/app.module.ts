@@ -21,6 +21,7 @@ import {CharDiffDialogComponent} from './components/code-comparison/char-diff-di
 import {SafeHtmlPipe} from './pipes/safe-html.pipe';
 import {JsonFormatterComponent} from './components/json-formatter/json-formatter.component';
 import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
+import { MarkdownToSlideComponent } from './components/markdown-to-slide/markdown-to-slide.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
     CharDiffDialogComponent,
     SafeHtmlPipe,
     JsonFormatterComponent,
+    MarkdownToSlideComponent,
   ],
   imports: [
     HighlightModule,

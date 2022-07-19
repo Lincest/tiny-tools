@@ -22,6 +22,10 @@
 - [x] 一键复制
 - [x] json转xml
 
+## some interesting ideas 
+
+- 在线markdown转ppt生成slide
+
 ## Deploy
 
 `ng deploy --base-href=https://blogbak.roccoshi.top/tiny-tools/`

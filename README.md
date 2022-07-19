@@ -24,9 +24,10 @@
 
 ### 在线markdown生成slide
 
-- [ ] 在线markdown编辑
-- [ ] 在线slide生成
-- [ ] slide全屏展示
+- [x] 在线markdown编辑
+- [x] 在线slide生成
+- [x] slide全屏展示
+- [ ] ui细节
 
 
 ## some interesting ideas 

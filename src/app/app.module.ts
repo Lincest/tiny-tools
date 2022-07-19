@@ -22,6 +22,7 @@ import {SafeHtmlPipe} from './pipes/safe-html.pipe';
 import {JsonFormatterComponent} from './components/json-formatter/json-formatter.component';
 import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import { MarkdownToSlideComponent } from './components/markdown-to-slide/markdown-to-slide.component';
+import { SlideContentComponent } from './components/markdown-to-slide/slide-content/slide-content.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MarkdownToSlideComponent } from './components/markdown-to-slide/markdow
     SafeHtmlPipe,
     JsonFormatterComponent,
     MarkdownToSlideComponent,
+    SlideContentComponent,
   ],
   imports: [
     HighlightModule,

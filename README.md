@@ -22,6 +22,13 @@
 - [x] 一键复制
 - [x] json转xml
 
+### 在线markdown生成slide
+
+- [ ] 在线markdown编辑
+- [ ] 在线slide生成
+- [ ] slide全屏展示
+
+
 ## some interesting ideas 
 
 - 在线markdown转ppt生成slide

@@ -11,8 +11,37 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class MarkdownToSlideComponent implements OnInit, AfterViewInit {
 
   prefix = 'LOCAL_STORAGE_MARKDOWN';
-  markdown = '';
+  markdown = `
+# 关于zg为什么是神
+
+| 关于zg为什么是神 | 关于zg为什么是神 | 关于zg为什么是神 |
+| ---------------- | ---------------- | ---------------- |
+| 关于zg为什么是神 | 关于zg为什么是神 | 关于zg为什么是神 |
+| 关于zg为什么是神 | 关于zg为什么是神 | 关于zg为什么是神 |
+| 关于zg为什么是神 | 关于zg为什么是神 | 关于zg为什么是神 |
+
+---
+
+## 关于zg为什么是神
+
+> 关于zg为什么是神
+
+- 关于zg为什么是神
+- 关于zg为什么是神
+- 关于zg为什么是神
+---
+
+### 关于zg为什么是神
+
+- [ ] 关于zg为什么是神
+
+\`\`\`go
+fmt.Printf("关于zg为什么是神")
+\`\`\`
+  `;
   content = null;
+
+  currentKey = null;
 
   @ViewChild('handler')
   public handler: ElementRef;
@@ -29,6 +58,7 @@ export class MarkdownToSlideComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.route.queryParams.subscribe(params => {
       const key = params.key;
+      this.currentKey = key;
       console.log('key = ', key);
       if (key) {
         const localStorageKey = `${this.prefix}_${key}`;
@@ -45,7 +75,7 @@ export class MarkdownToSlideComponent implements OnInit, AfterViewInit {
     console.log('现在localstorage item为: ', Object.entries(localStorage).length);
     Object.entries(localStorage).map(
       x => x[0]
-  ).filter(
+    ).filter(
       x => x.substring(0, this.prefix.length) === this.prefix
     ).map(
       x => localStorage.removeItem(x));
@@ -59,23 +89,23 @@ export class MarkdownToSlideComponent implements OnInit, AfterViewInit {
 
   generate() {
     this.handler.nativeElement.innerHTML = `
-        <div class="reveal" id="reveal-slide">
-          <div class="slides">
-            <section data-markdown>
-              <textarea data-template>
-                ${this.content}
-              </textarea>
-            </section>
-          </div>
+      <div class="reveal" id="reveal-slide">
+        <div class="slides">
+          <section data-markdown>
+            <textarea data-template>
+              ${this.content}
+            </textarea>
+          </section>
         </div>
-    `;
+      </div>
+  `;
     Reveal.initialize({
       plugins: [RevealMarkdown],
-      parallaxBackgroundImage: '',
-      parallaxBackgroundSize: '',
-      parallaxBackgroundHorizontal: 200,
-      parallaxBackgroundVertical: 50,
     });
+  }
+
+  toFull() {
+    this.router.navigate([`/slide-full`], {queryParams: {key: this.currentKey}}).then(() => location.reload());
   }
 
 

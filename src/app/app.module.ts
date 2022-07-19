@@ -12,7 +12,7 @@ import {
   FieldsetModule,
   InputTextareaModule,
   MenubarModule,
-  PaginatorModule,
+  PaginatorModule, SidebarModule,
   TabMenuModule
 } from 'primeng';
 import {CodeComparisonComponent} from './components/code-comparison/code-comparison.component';
@@ -22,7 +22,9 @@ import {SafeHtmlPipe} from './pipes/safe-html.pipe';
 import {JsonFormatterComponent} from './components/json-formatter/json-formatter.component';
 import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import { MarkdownToSlideComponent } from './components/markdown-to-slide/markdown-to-slide.component';
-import { SlideContentComponent } from './components/markdown-to-slide/slide-content/slide-content.component';
+import {FormsModule} from '@angular/forms';
+import {LMarkdownEditorModule} from 'ngx-markdown-editor';
+import { FullScreenSlideComponent } from './components/markdown-to-slide/full-screen-slide/full-screen-slide.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { SlideContentComponent } from './components/markdown-to-slide/slide-cont
     SafeHtmlPipe,
     JsonFormatterComponent,
     MarkdownToSlideComponent,
-    SlideContentComponent,
+    FullScreenSlideComponent,
   ],
   imports: [
     HighlightModule,
@@ -51,6 +53,9 @@ import { SlideContentComponent } from './components/markdown-to-slide/slide-cont
     MenubarModule,
     FieldsetModule,
     ButtonModule,
+    FormsModule,
+    LMarkdownEditorModule,
+    SidebarModule
   ],
   providers: [
     {

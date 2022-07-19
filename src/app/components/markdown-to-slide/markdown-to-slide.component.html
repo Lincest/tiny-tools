@@ -1,7 +1,13 @@
 <div class="p-grid">
   <div class="p-col-6">
     <p-card header="原始json">
-      <textarea pInputTextarea [(ngModel)]="markdown"></textarea>
+      <form novalidate #form="ngForm">
+        <md-editor
+          name="Markdown"
+          [(ngModel)]="markdown"
+          [height]="'750px'">
+        </md-editor>
+      </form>
       <p-footer>
         <button pButton type="button" label="生成slide" icon="pi pi-check" style="margin-right: .25em"
                 (click)="save()"></button>
@@ -9,9 +15,12 @@
     </p-card>
   </div>
   <div class="p-col-6">
-    <p-card header="格式化后json">
-      <div style="width:1000px;height:500px" #handler></div>
+    <p-card header="ppt预览">
+      <div style="width:100%;height:800px" #handler></div>
     </p-card>
+    <p-footer>
+      <p-button type="button" class="mr-2 mt-2" (click)="toFull()" icon="pi pi-th-large" label="全屏"></p-button>
+    </p-footer>
   </div>
 </div>
 

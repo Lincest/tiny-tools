@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SlideContentComponent } from './slide-content.component';
+import { FullScreenSlideComponent } from './full-screen-slide.component';
 
-describe('SlideContentComponent', () => {
-  let component: SlideContentComponent;
-  let fixture: ComponentFixture<SlideContentComponent>;
+describe('FullScreenSlideComponent', () => {
+  let component: FullScreenSlideComponent;
+  let fixture: ComponentFixture<FullScreenSlideComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SlideContentComponent ]
+      declarations: [ FullScreenSlideComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SlideContentComponent);
+    fixture = TestBed.createComponent(FullScreenSlideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

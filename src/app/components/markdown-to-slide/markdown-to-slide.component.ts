@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import Reveal from 'reveal.js';
 import RevealMarkdown from 'reveal.js/plugin/markdown/markdown';
 import {ActivatedRoute, Router} from '@angular/router';
+import {resolve} from 'chart.js/helpers';
 
 @Component({
   selector: 'app-markdown-to-slide',
@@ -106,6 +107,16 @@ fmt.Printf("关于zg为什么是神")
 
   toFull() {
     this.router.navigate([`/slide-full`], {queryParams: {key: this.currentKey}}).then(() => location.reload());
+  }
+
+  onUpload(event) {
+    for (const file of event.files) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.markdown = reader.result.toString();
+      };
+      reader.readAsText(file);
+    }
   }
 
 

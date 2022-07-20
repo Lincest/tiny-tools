@@ -1,6 +1,17 @@
 <div class="p-grid">
   <div class="p-col-6">
-    <p-card header="原始json">
+    <p-card>
+      <p-header>
+        <p-fileUpload
+          name="demo[]"
+          accept=".md"
+          maxFileSize="1000000"
+          chooseLabel="上传markdown文件"
+          [auto]="true"
+          [customUpload]="true"
+          (uploadHandler)="onUpload($event)">
+        </p-fileUpload>
+      </p-header>
       <form novalidate #form="ngForm">
         <md-editor
           name="Markdown"

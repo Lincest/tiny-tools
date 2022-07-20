@@ -9,7 +9,7 @@ import {
   ButtonModule,
   CardModule,
   EditorModule,
-  FieldsetModule,
+  FieldsetModule, FileUploadModule,
   InputTextareaModule,
   MenubarModule,
   PaginatorModule, SidebarModule,
@@ -21,10 +21,11 @@ import {CharDiffDialogComponent} from './components/code-comparison/char-diff-di
 import {SafeHtmlPipe} from './pipes/safe-html.pipe';
 import {JsonFormatterComponent} from './components/json-formatter/json-formatter.component';
 import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
-import { MarkdownToSlideComponent } from './components/markdown-to-slide/markdown-to-slide.component';
+import {MarkdownToSlideComponent} from './components/markdown-to-slide/markdown-to-slide.component';
 import {FormsModule} from '@angular/forms';
 import {LMarkdownEditorModule} from 'ngx-markdown-editor';
-import { FullScreenSlideComponent } from './components/markdown-to-slide/full-screen-slide/full-screen-slide.component';
+import {FullScreenSlideComponent} from './components/markdown-to-slide/full-screen-slide/full-screen-slide.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { FullScreenSlideComponent } from './components/markdown-to-slide/full-sc
     ButtonModule,
     FormsModule,
     LMarkdownEditorModule,
-    SidebarModule
+    SidebarModule,
+    FileUploadModule,
+    HttpClientModule
   ],
   providers: [
     {

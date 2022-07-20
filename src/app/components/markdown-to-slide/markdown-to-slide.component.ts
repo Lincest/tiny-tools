@@ -2,7 +2,9 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import Reveal from 'reveal.js';
 import RevealMarkdown from 'reveal.js/plugin/markdown/markdown';
 import {ActivatedRoute, Router} from '@angular/router';
-import {resolve} from 'chart.js/helpers';
+import {saveAs} from 'file-saver';
+import {MenuItem} from 'primeng';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-markdown-to-slide',
@@ -47,9 +49,35 @@ fmt.Printf("关于zg为什么是神")
   @ViewChild('handler')
   public handler: ElementRef;
 
+  @ViewChild('downloadZip')
+  public zipDownloader: ElementRef;
+
+  exporting = false;
+  activeIndex = null;
+  exportItems: MenuItem[] = [
+    {
+      label: '下载reveal.js相关压缩包', command: () => {
+        this.activeIndex = 0;
+        const event = new MouseEvent('click', {bubbles: true});
+        this.zipDownloader.nativeElement.dispatchEvent(event);
+      }
+    },
+    {
+      label: '导出本slide', command: () => {
+        this.activeIndex = 1;
+        this.exportFile();
+      }
+    },
+    {
+      label: '替换压缩包中的index.html, 之后打开index.html',
+      command: () => this.activeIndex = 3
+    }
+  ];
+
   constructor(
     public router: Router,
     public route: ActivatedRoute,
+    public http: HttpClient,
   ) {
   }
 
@@ -119,5 +147,50 @@ fmt.Printf("关于zg为什么是神")
     }
   }
 
+  exportFile() {
+    const htmlTemplate = `
+    <!doctype html>
+<html>
+\t<head>
+\t\t<meta charset="utf-8">
+\t\t<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+\t\t<title>reveal.js</title>
+
+\t\t<link rel="stylesheet" href="dist/reset.css">
+\t\t<link rel="stylesheet" href="dist/reveal.css">
+\t\t<link rel="stylesheet" href="dist/theme/black.css">
+
+\t\t<!-- Theme used for syntax highlighted code -->
+\t\t<link rel="stylesheet" href="plugin/highlight/monokai.css">
+\t</head>
+\t<body>
+\t\t<div class="reveal">
+\t\t\t<div class="slides">
+\t\t\t\t<section data-markdown>
+\t\t\t\t\t<textarea data-template>
+\t\t\t\t\t\t ${this.markdown}
+\t\t\t\t\t</textarea>
+\t\t\t\t  </section>
+\t\t\t</div>
+\t\t</div>
+
+\t\t<script src="dist/reveal.js"></script>
+\t\t<script src="plugin/notes/notes.js"></script>
+\t\t<script src="plugin/markdown/markdown.js"></script>
+\t\t<script src="plugin/highlight/highlight.js"></script>
+\t\t<script>
+\t\t\tReveal.initialize({
+\t\t\t\thash: true,
+
+\t\t\t\t// Learn about plugins: https://revealjs.com/plugins/
+\t\t\t\tplugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+\t\t\t});
+\t\t</script>
+\t</body>
+</html>
+    `;
+    const blob = new Blob([htmlTemplate], {type: 'text/html'});
+    saveAs(blob, 'index.html');
+  }
 }

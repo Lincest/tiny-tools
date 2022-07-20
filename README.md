@@ -29,9 +29,10 @@
 ![](https://youpai.roccoshi.top/img/202207200235517.png)
 
 - [x] 在线markdown编辑
+- [x] 在线markdown预览
 - [x] 在线slide生成
 - [x] slide全屏展示
-- [ ] ui细节
+- [x] 文件上传
 
 ## some interesting ideas 
 

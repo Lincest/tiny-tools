@@ -31,7 +31,15 @@
     </p-card>
     <p-footer>
       <p-button type="button" class="mr-2 mt-2" (click)="toFull()" icon="pi pi-th-large" label="全屏"></p-button>
+      <p-button type="button" class="mr-2 mt-2" (click)="exporting = true" icon="pi pi-th-large" label="导出"></p-button>
     </p-footer>
   </div>
 </div>
 
+<p-dialog header="导出slide" [(visible)]="exporting">
+  <div class="card">
+    <h4 class="text-center mt-2">导出: (点击执行相应操作)</h4>
+    <p-steps [model]="exportItems" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+    <a href="https://github.com/hakimel/reveal.js/archive/master.zip" [hidden]="true" #downloadZip></a>
+  </div>
+</p-dialog>

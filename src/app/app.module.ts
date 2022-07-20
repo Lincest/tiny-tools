@@ -7,12 +7,12 @@ import {NgxEchartsModule} from 'ngx-echarts';
 import {RouterModule} from '@angular/router';
 import {
   ButtonModule,
-  CardModule,
+  CardModule, DialogModule,
   EditorModule,
   FieldsetModule, FileUploadModule,
   InputTextareaModule,
   MenubarModule,
-  PaginatorModule, SidebarModule,
+  PaginatorModule, SidebarModule, StepsModule,
   TabMenuModule
 } from 'primeng';
 import {CodeComparisonComponent} from './components/code-comparison/code-comparison.component';
@@ -58,7 +58,9 @@ import {HttpClientModule} from '@angular/common/http';
     LMarkdownEditorModule,
     SidebarModule,
     FileUploadModule,
-    HttpClientModule
+    HttpClientModule,
+    DialogModule,
+    StepsModule
   ],
   providers: [
     {

@@ -4,6 +4,7 @@ import {CodeComparisonComponent} from './components/code-comparison/code-compari
 import {JsonFormatterComponent} from './components/json-formatter/json-formatter.component';
 import {MarkdownToSlideComponent} from './components/markdown-to-slide/markdown-to-slide.component';
 import {FullScreenSlideComponent} from './components/markdown-to-slide/full-screen-slide/full-screen-slide.component';
+import {TimeFormatComponent} from './components/time-format/time-format.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'json-formatter', component: JsonFormatterComponent},
   {path: 'markdown-to-slide', component: MarkdownToSlideComponent},
   {path: 'slide-full', component: FullScreenSlideComponent},
+  {path: 'time-format', component: TimeFormatComponent}
 ];
 
 @NgModule({

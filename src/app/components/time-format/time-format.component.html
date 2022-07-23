@@ -1,0 +1,45 @@
+<div class="card p-mt-5">
+  <div class="p-d-flex justify-content-center align-items-center">
+    <div [style]="{'width': '50vw'}">
+      <div class="ui-fluid">
+        <div class="p-field">
+          <label for="origin">origin</label>
+          <input type="text" id="origin" [(ngModel)]="origin" (change)="calc()" pInputText>
+        </div>
+      <div class="ui-fluid p-formgrid p-grid">
+<!--        <div class="p-field">-->
+<!--          <label for="rfc3339">RFC3339</label>-->
+<!--          <input type="text" id="rfc3339" [pattern]="pattern.rfc3339" [(ngModel)]="result.rfc3339" pInputText>-->
+<!--        </div>-->
+        <div class="p-field p-col-12">
+          <label for="local">本地时间</label>
+          <input type="text" id="local" [(ngModel)]="result.local" pInputText disabled>
+        </div>
+        <div class="p-field p-col-12">
+          <label for="iso8601">ISO8601</label>
+          <input type="text" id="iso8601" [pattern]="pattern.iso8601" [(ngModel)]="result.iso8601" pInputText disabled>
+        </div>
+        <div class="p-field p-col-12">
+          <label for="utc">utc时间</label>
+          <input type="text" id="utc" [(ngModel)]="result.utc" pInputText disabled>
+        </div>
+        <div class="p-field p-col-12">
+          <label for="timestamp10">10位时间戳</label>
+          <input type="text" id="timestamp10" [pattern]="'\d{10}'" [(ngModel)]="result.timestamp10" pInputText disabled>
+        </div>
+        <div class="p-field p-col-12">
+          <label for="timestamp13">13位时间戳</label>
+          <input type="text" id="timestamp13" [pattern]="'\d{13}'" [(ngModel)]="result.timestamp13" pInputText disabled>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="format">自定义格式</label>
+          <input type="text" id="format" [(ngModel)]="format" pInputText>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="formatted">自定义格式</label>
+          <input type="text" id="formatted" [(ngModel)]="result.format" pInputText disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

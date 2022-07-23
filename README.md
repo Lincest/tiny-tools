@@ -33,6 +33,7 @@
 - [x] 在线slide生成
 - [x] slide全屏展示
 - [x] 文件上传
+- [x] 文件导出的指引
 
 ## some interesting ideas 
 

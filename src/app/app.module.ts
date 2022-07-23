@@ -10,8 +10,8 @@ import {
   CardModule, DialogModule,
   EditorModule,
   FieldsetModule, FileUploadModule,
-  InputTextareaModule,
-  MenubarModule,
+  InputTextareaModule, InputTextModule,
+  MenubarModule, MessageModule,
   PaginatorModule, SidebarModule, StepsModule,
   TabMenuModule
 } from 'primeng';
@@ -26,6 +26,7 @@ import {FormsModule} from '@angular/forms';
 import {LMarkdownEditorModule} from 'ngx-markdown-editor';
 import {FullScreenSlideComponent} from './components/markdown-to-slide/full-screen-slide/full-screen-slide.component';
 import {HttpClientModule} from '@angular/common/http';
+import { TimeFormatComponent } from './components/time-format/time-format.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {HttpClientModule} from '@angular/common/http';
     JsonFormatterComponent,
     MarkdownToSlideComponent,
     FullScreenSlideComponent,
+    TimeFormatComponent,
   ],
   imports: [
     HighlightModule,
@@ -60,7 +62,9 @@ import {HttpClientModule} from '@angular/common/http';
     FileUploadModule,
     HttpClientModule,
     DialogModule,
-    StepsModule
+    StepsModule,
+    InputTextModule,
+    MessageModule
   ],
   providers: [
     {

@@ -6,14 +6,14 @@ import {AppRoutingModule} from './app-routing.module';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {RouterModule} from '@angular/router';
 import {
-  ButtonModule,
-  CardModule, DialogModule,
-  EditorModule,
-  FieldsetModule, FileUploadModule,
-  InputTextareaModule, InputTextModule,
-  MenubarModule, MessageModule,
-  PaginatorModule, SidebarModule, StepsModule,
-  TabMenuModule
+    ButtonModule,
+    CardModule, DialogModule,
+    EditorModule,
+    FieldsetModule, FileUploadModule, InputSwitchModule,
+    InputTextareaModule, InputTextModule,
+    MenubarModule, MessageModule,
+    PaginatorModule, SidebarModule, StepsModule,
+    TabMenuModule
 } from 'primeng';
 import {CodeComparisonComponent} from './components/code-comparison/code-comparison.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -39,33 +39,34 @@ import { TimeFormatComponent } from './components/time-format/time-format.compon
     FullScreenSlideComponent,
     TimeFormatComponent,
   ],
-  imports: [
-    HighlightModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    AppRoutingModule,
-    NgxEchartsModule.forRoot({
-      echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
-    }),
-    RouterModule,
-    TabMenuModule,
-    EditorModule,
-    PaginatorModule,
-    InputTextareaModule,
-    CardModule,
-    MenubarModule,
-    FieldsetModule,
-    ButtonModule,
-    FormsModule,
-    LMarkdownEditorModule,
-    SidebarModule,
-    FileUploadModule,
-    HttpClientModule,
-    DialogModule,
-    StepsModule,
-    InputTextModule,
-    MessageModule
-  ],
+    imports: [
+        HighlightModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        AppRoutingModule,
+        NgxEchartsModule.forRoot({
+            echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+        }),
+        RouterModule,
+        TabMenuModule,
+        EditorModule,
+        PaginatorModule,
+        InputTextareaModule,
+        CardModule,
+        MenubarModule,
+        FieldsetModule,
+        ButtonModule,
+        FormsModule,
+        LMarkdownEditorModule,
+        SidebarModule,
+        FileUploadModule,
+        HttpClientModule,
+        DialogModule,
+        StepsModule,
+        InputTextModule,
+        MessageModule,
+        InputSwitchModule
+    ],
   providers: [
     {
       provide: HIGHLIGHT_OPTIONS,

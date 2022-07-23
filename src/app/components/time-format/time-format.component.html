@@ -1,18 +1,20 @@
 <div class="card p-mt-5">
-  <div class="p-d-flex justify-content-center align-items-center">
-    <div [style]="{'width': '50vw'}">
-      <div class="ui-fluid">
-        <div class="p-field">
-          <label for="origin">origin</label>
-          <input type="text" id="origin" [(ngModel)]="origin" (change)="calc()" pInputText>
-        </div>
+  <div class="p-d-flex justify-content-center">
+    <div [style]="{'width': '50vw'}" class="p-mt-5 p-mr-5">
       <div class="ui-fluid p-formgrid p-grid">
-<!--        <div class="p-field">-->
-<!--          <label for="rfc3339">RFC3339</label>-->
-<!--          <input type="text" id="rfc3339" [pattern]="pattern.rfc3339" [(ngModel)]="result.rfc3339" pInputText>-->
-<!--        </div>-->
+        <div class="p-field p-col-12 p-md-6">
+          <label for="origin">origin</label>
+          <div class="ui-inputgroup">
+            <input type="text" id="origin" [(ngModel)]="origin" pInputText>
+            <button type="button" (click)="calc()" pButton label="Do"></button>
+          </div>
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label>本地 / utc时间</label>
+          <p-dropdown [options]="isLocalOptions" [(ngModel)]="isLocal"></p-dropdown>
+        </div>
         <div class="p-field p-col-12">
-          <label for="local">本地时间</label>
+          <label for="local">String</label>
           <input type="text" id="local" [(ngModel)]="result.local" pInputText disabled>
         </div>
         <div class="p-field p-col-12">
@@ -33,13 +35,154 @@
         </div>
         <div class="p-field p-col-12 p-md-6">
           <label for="format">自定义格式</label>
-          <input type="text" id="format" [(ngModel)]="format" pInputText>
+          <div class="ui-inputgroup">
+            <input type="text" id="format" [(ngModel)]="format" pInputText>
+            <button type="button" style="width:200px" (click)="openRef()" pButton [label]="showFormatRef ? '关闭格式参考' : '打开格式参考'"></button>
+          </div>
         </div>
         <div class="p-field p-col-12 p-md-6">
           <label for="formatted">自定义格式</label>
           <input type="text" id="formatted" [(ngModel)]="result.format" pInputText disabled>
         </div>
       </div>
+    </div>
+    <div *ngIf="showFormatRef">
+      <table class="styled-table">
+        <thead>
+        <tr>
+          <th>占位符</th>
+          <th>输出</th>
+          <th>详情</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><code>YY</code></td>
+          <td>18</td>
+          <td>两位数的年份</td>
+        </tr>
+        <tr>
+          <td><code>YYYY</code></td>
+          <td>2018</td>
+          <td>四位数的年份</td>
+        </tr>
+        <tr>
+          <td><code>M</code></td>
+          <td>1-12</td>
+          <td>月份，从 1 开始</td>
+        </tr>
+        <tr>
+          <td><code>MM</code></td>
+          <td>01-12</td>
+          <td>月份，两位数</td>
+        </tr>
+        <tr>
+          <td><code>MMM</code></td>
+          <td>Jan-Dec</td>
+          <td>缩写的月份名称</td>
+        </tr>
+        <tr>
+          <td><code>MMMM</code></td>
+          <td>January-December</td>
+          <td>完整的月份名称</td>
+        </tr>
+        <tr>
+          <td><code>D</code></td>
+          <td>1-31</td>
+          <td>月份里的一天</td>
+        </tr>
+        <tr>
+          <td><code>DD</code></td>
+          <td>01-31</td>
+          <td>月份里的一天，两位数</td>
+        </tr>
+        <tr>
+          <td><code>d</code></td>
+          <td>0-6</td>
+          <td>一周中的一天，星期天是 0</td>
+        </tr>
+        <tr>
+          <td><code>dd</code></td>
+          <td>Su-Sa</td>
+          <td>最简写的星期几</td>
+        </tr>
+        <tr>
+          <td><code>ddd</code></td>
+          <td>Sun-Sat</td>
+          <td>简写的星期几</td>
+        </tr>
+        <tr>
+          <td><code>dddd</code></td>
+          <td>Sunday-Saturday</td>
+          <td>星期几</td>
+        </tr>
+        <tr>
+          <td><code>H</code></td>
+          <td>0-23</td>
+          <td>小时</td>
+        </tr>
+        <tr>
+          <td><code>HH</code></td>
+          <td>00-23</td>
+          <td>小时，两位数</td>
+        </tr>
+        <tr>
+          <td><code>h</code></td>
+          <td>1-12</td>
+          <td>小时, 12 小时制</td>
+        </tr>
+        <tr>
+          <td><code>hh</code></td>
+          <td>01-12</td>
+          <td>小时, 12 小时制, 两位数</td>
+        </tr>
+        <tr>
+          <td><code>m</code></td>
+          <td>0-59</td>
+          <td>分钟</td>
+        </tr>
+        <tr>
+          <td><code>mm</code></td>
+          <td>00-59</td>
+          <td>分钟，两位数</td>
+        </tr>
+        <tr>
+          <td><code>s</code></td>
+          <td>0-59</td>
+          <td>秒</td>
+        </tr>
+        <tr>
+          <td><code>ss</code></td>
+          <td>00-59</td>
+          <td>秒 两位数</td>
+        </tr>
+        <tr>
+          <td><code>SSS</code></td>
+          <td>000-999</td>
+          <td>毫秒 三位数</td>
+        </tr>
+        <tr>
+          <td><code>Z</code></td>
+          <td>+05:00</td>
+          <td>UTC 的偏移量，±HH:mm</td>
+        </tr>
+        <tr>
+          <td><code>ZZ</code></td>
+          <td>+0500</td>
+          <td>UTC 的偏移量，±HHmm</td>
+        </tr>
+        <tr>
+          <td><code>A</code></td>
+          <td>AM PM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><code>a</code></td>
+          <td>am pm</td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -35,9 +35,11 @@
 - [x] 文件上传
 - [x] 文件导出的指引
 
-## some interesting ideas 
+### 在线时间转换
 
-- 在线markdown转ppt生成slide
+![](https://youpai.roccoshi.top/img/202207231634250.png)
+
+> 支持iso8601时间, 时间戳, utc时间, 自定义时间格式等, 并提供格式format参考
 
 ## Deploy
 

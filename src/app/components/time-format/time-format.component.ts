@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as dayjs from 'dayjs';
+import * as utc from 'dayjs/plugin/utc';
+import {SelectItem} from 'primeng';
 
 @Component({
   selector: 'app-time-format',
@@ -8,6 +10,11 @@ import * as dayjs from 'dayjs';
 })
 export class TimeFormatComponent implements OnInit {
 
+  isLocal: true;
+  isLocalOptions: SelectItem[] = [
+    {value: false, label: 'utc'},
+    {value: true, label: '本地'}
+  ];
   origin: string;
   format = 'YYYY-MM-DD HH:mm:ss';
   result = {
@@ -25,7 +32,10 @@ export class TimeFormatComponent implements OnInit {
     iso8601: /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$/,
   };
 
+  showFormatRef = false;
+
   constructor() {
+    dayjs.extend(utc);
   }
 
   ngOnInit(): void {
@@ -36,15 +46,18 @@ export class TimeFormatComponent implements OnInit {
   calc() {
     console.log('calc');
     try {
-      const date = new Date(this.origin);
-      if (this.isValidDate(date)) {
+      let date = dayjs(this.origin);
+      if (!this.isLocal) {
+        date = date.utc();
+      }
+      if (date.isValid()) {
         console.log(date);
         this.result.iso8601 = date.toISOString();
         this.result.local = date.toString();
-        this.result.timestamp10 = (date.getTime() / 1000).toString();
-        this.result.timestamp13 = date.getTime().toString();
-        this.result.utc = date.toUTCString();
-        this.result.format = dayjs(this.origin).format(this.format).toString();
+        this.result.timestamp10 = date.unix().toString();
+        this.result.timestamp13 = date.valueOf().toString();
+        this.result.utc = date.format();
+        this.result.format = date.format(this.format).toString();
       } else {
         Object.keys(this.result).forEach(k => this.result[k] = 'failed');
         return;
@@ -63,4 +76,7 @@ export class TimeFormatComponent implements OnInit {
     Object.keys(this.result).forEach(k => this.result[k] = 'failed');
   }
 
+  openRef() {
+    this.showFormatRef = !this.showFormatRef;
+  }
 }

@@ -27,6 +27,7 @@ import {LMarkdownEditorModule} from 'ngx-markdown-editor';
 import {FullScreenSlideComponent} from './components/markdown-to-slide/full-screen-slide/full-screen-slide.component';
 import {HttpClientModule} from '@angular/common/http';
 import { TimeFormatComponent } from './components/time-format/time-format.component';
+import { UrlPastebinComponent } from './components/url-pastebin/url-pastebin.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { TimeFormatComponent } from './components/time-format/time-format.compon
     MarkdownToSlideComponent,
     FullScreenSlideComponent,
     TimeFormatComponent,
+    UrlPastebinComponent,
   ],
     imports: [
         HighlightModule,

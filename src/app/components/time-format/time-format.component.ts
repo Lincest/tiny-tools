@@ -67,11 +67,6 @@ export class TimeFormatComponent implements OnInit {
     }
   }
 
-  // https://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
-  isValidDate(d: Date) {
-    return d instanceof Date && !isNaN(d.valueOf());
-  }
-
   setFailed() {
     Object.keys(this.result).forEach(k => this.result[k] = 'failed');
   }

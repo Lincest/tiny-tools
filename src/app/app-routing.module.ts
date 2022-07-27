@@ -5,6 +5,7 @@ import {JsonFormatterComponent} from './components/json-formatter/json-formatter
 import {MarkdownToSlideComponent} from './components/markdown-to-slide/markdown-to-slide.component';
 import {FullScreenSlideComponent} from './components/markdown-to-slide/full-screen-slide/full-screen-slide.component';
 import {TimeFormatComponent} from './components/time-format/time-format.component';
+import {UrlPastebinComponent} from './components/url-pastebin/url-pastebin.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'json-formatter', component: JsonFormatterComponent},
   {path: 'markdown-to-slide', component: MarkdownToSlideComponent},
   {path: 'slide-full', component: FullScreenSlideComponent},
-  {path: 'time-format', component: TimeFormatComponent}
+  {path: 'time-format', component: TimeFormatComponent},
+  {path: 'url-pastebin', component: UrlPastebinComponent}
 ];
 
 @NgModule({

@@ -43,6 +43,8 @@
  
 ### pastebin
 
+![](https://youpai.roccoshi.top/img/202208161105195.png)
+
 > 支持过期时间设置, 支持代码高亮, 后端基于redis
 
 ## Deploy

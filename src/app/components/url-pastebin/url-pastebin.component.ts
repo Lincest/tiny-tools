@@ -1,6 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {BitlyClient} from 'bitly';
 import * as deflate from 'deflate-js';
+import {HttpClient} from '@angular/common/http';
+import {ActivatedRoute, Route, Router} from '@angular/router';
+import {PastebinService} from './pastebin.service';
+import {ClipboardService} from 'ngx-clipboard';
+import {Pastebin} from './pastebin.model';
+import {SelectItem} from 'primeng';
 
 @Component({
   selector: 'app-url-pastebin',
@@ -9,53 +15,65 @@ import * as deflate from 'deflate-js';
 })
 export class UrlPastebinComponent implements OnInit {
 
-  accessToken: string;
   text: string;
+  show = false;
+  errStr: string;
+  expired: number;
+  expiredOptions: SelectItem[] = [
+    {label: '请选择过期时间', value: null},
+    {label: '1天', value: 1},
+    {label: '7天', value: 7},
+    {label: '15天', value: 15},
+    {label: '30天', value: 30},
+  ];
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private pastebinService: PastebinService,
+    private clipboardApi: ClipboardService
+  ) {
   }
 
-  async ngOnInit() {
-    const encoder = new TextEncoder();
-    const decoder = new TextDecoder();
-    const ans: Uint8Array = deflate.deflate(encoder.encode(`我是傻逼`));
-    // console.log('encoder.encode = ', encoder.encode('hahahahahahshab'));
-    // console.log('ans = ', ans);
-    // console.log('ans inflate = ', deflate.inflate(ans));
-    const base64Encode = this.base64Encode(ans);
-    console.log('base64 before = ', ans);
-    console.log('base64 encode = ', base64Encode);
-    console.log('base64 decode = ', this.base64Decode(base64Encode));
-    console.log('after decode = ', decoder.decode(Uint8Array.from(deflate.inflate(this.base64Decode(base64Encode)))));
-  }
-
-  async log() {
-    const bitly = new BitlyClient(this.accessToken, {});
-    try {
-      const url = await bitly.shorten('https://blogbak.roccoshi.top/');
-      console.log('url = ', url);
-    } catch (e) {
-      console.log(e);
+  ngOnInit() {
+    const id = this.route.snapshot.params.id;
+    console.log('id = ', id);
+    if (id) {
+      this.show = true;
+      this.pastebinService.getDataById(id).subscribe(res => {
+        if (res.code === 0) {
+          this.text = res.data;
+        } else {
+          this.errStr = `<span style="color: red; white-space: pre-wrap">${res.msg}</span>`;
+          console.log('error: ', res.msg);
+        }
+      });
     }
   }
 
-  // ref: https://stackoverflow.com/questions/12710001/how-to-convert-uint8-array-to-base64-encoded-string
-  private base64Encode(input: Uint8Array) {
-    return btoa(String.fromCharCode.apply(null, input));
+  copy() {
+    this.clipboardApi.copy(this.text);
+    confirm('复制成功');
   }
 
-  private base64Decode(base64Input: string) {
-    const padding = '='.repeat((4 - base64Input.length % 4) % 4);
-    const base64 = (base64Input + padding)
-      .replace(/\-/g, '+')
-      .replace(/_/g, '/');
+  upload() {
+    const data: Pastebin = {
+      data: this.text,
+      expired: this.expired,
+    };
+    this.pastebinService.setData(data).subscribe(res => {
+      if (res.code === 0) {
+        if (confirm('上传成功, 点击确认跳转')) {
+          this.router.navigate(['/url-pastebin', res.data]);
+        } else {
+          confirm('上传失败, error: ' + res.msg);
+        }
+      }
+    });
+  }
 
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-
-    for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
+  copyUrl() {
+    this.clipboardApi.copy(location.href);
+    confirm('复制成功');
   }
 }

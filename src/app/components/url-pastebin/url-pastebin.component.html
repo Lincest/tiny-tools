@@ -1,4 +1,26 @@
-<input type="text" [(ngModel)]="accessToken" pInputText>
-<button type="button" (click)="log()" pButton label="Do"></button>
-
-<textarea pInputTextarea [(ngModel)]="text"></textarea>
+<div class="p-d-flex justify-content-center">
+  <div class="p-col-9" *ngIf="!show">
+    <p-card header="input">
+      <textarea pInputTextarea [(ngModel)]="text"></textarea>
+      <p-footer>
+        <p-dropdown [options]="expiredOptions" [(ngModel)]="expired" class="p-mr-2"></p-dropdown>
+        <button pButton type="button" label="上传" icon="pi pi-check" class="p-mr-2"
+                (click)="upload()"></button>
+      </p-footer>
+    </p-card>
+  </div>
+  <div class="p-col-9" *ngIf="show">
+    <p-card header="pastebin">
+      <pre><code [highlight]="text" [lineNumbers]="true"></code></pre>
+      <div [innerHTML]="errStr | safeHtml" *ngIf="errStr"></div>
+      <p-footer>
+        <button pButton type="button" label="复制内容" class="ui-button-rounded ui-button-secondary"
+                icon="pi pi-copy" (click)="copy()" *ngIf="!errStr"></button>
+        <button pButton type="button" label="复制url" class="ui-button-rounded ui-button-secondary p-ml-2"
+                icon="pi pi-copy" (click)="copyUrl()" *ngIf="!errStr"></button>
+        <button pButton type="button" label="继续上传" class="ui-button-rounded ui-button-secondary p-ml-2"
+                icon="pi pi-copy" routerLink="/url-pastebin"></button>
+      </p-footer>
+    </p-card>
+  </div>
+</div>

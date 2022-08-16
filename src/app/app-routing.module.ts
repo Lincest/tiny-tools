@@ -15,7 +15,8 @@ const routes: Routes = [
   {path: 'markdown-to-slide', component: MarkdownToSlideComponent},
   {path: 'slide-full', component: FullScreenSlideComponent},
   {path: 'time-format', component: TimeFormatComponent},
-  {path: 'url-pastebin', component: UrlPastebinComponent}
+  {path: 'url-pastebin', component: UrlPastebinComponent},
+  {path: 'url-pastebin/:id', component: UrlPastebinComponent}
 ];
 
 @NgModule({

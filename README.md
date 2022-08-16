@@ -41,11 +41,9 @@
 
 > 支持iso8601时间, 时间戳, utc时间, 自定义时间格式等, 并提供格式format参考
  
-### 一个无服务器的pastebin
+### pastebin
 
-> TODO: 通过压缩算法(待定)将内容压缩, 然后用base64等方式(待定)编码, 并使用校验和保证内容的一致性, 数据都存在url中, RFC并未对url的长度做限制, 取决于浏览器的实现
-> 如 https://www.geeksforgeeks.org/maximum-length-of-a-url-in-different-browsers/ 所说, chrome允许url保存2MB的数据, 对于日常纯文本的数据纯纯够用
-> url通过bitly等短链接服务进行压缩, 如果内容过长, 考虑使用嵌套的短连接服务(magic)
+> 支持过期时间设置, 支持代码高亮, 后端基于redis
 
 ## Deploy
 

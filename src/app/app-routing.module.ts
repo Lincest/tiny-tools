@@ -9,7 +9,6 @@ import {UrlPastebinComponent} from './components/url-pastebin/url-pastebin.compo
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/code-comparison', pathMatch: 'full'},
   {path: 'code-comparison', component: CodeComparisonComponent},
   {path: 'json-formatter', component: JsonFormatterComponent},
   {path: 'markdown-to-slide', component: MarkdownToSlideComponent},

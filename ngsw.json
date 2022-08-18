@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1660815536004,
+  "timestamp": 1660815840982,
   "index": "https://blogbak.roccoshi.top/tiny-tools/index.html",
   "assetGroups": [
     {
@@ -14,8 +14,8 @@
         "https://blogbak.roccoshi.top/tiny-tools/6-es5.0354bcb417c0b637580c.js",
         "https://blogbak.roccoshi.top/tiny-tools/favicon.ico",
         "https://blogbak.roccoshi.top/tiny-tools/index.html",
-        "https://blogbak.roccoshi.top/tiny-tools/main-es2015.1d5418037e9c4e4c15f5.js",
-        "https://blogbak.roccoshi.top/tiny-tools/main-es5.1d5418037e9c4e4c15f5.js",
+        "https://blogbak.roccoshi.top/tiny-tools/main-es2015.6266163dd205d06ee35f.js",
+        "https://blogbak.roccoshi.top/tiny-tools/main-es5.6266163dd205d06ee35f.js",
         "https://blogbak.roccoshi.top/tiny-tools/manifest.webmanifest",
         "https://blogbak.roccoshi.top/tiny-tools/polyfills-es2015.ed71c9eabc48e97807bc.js",
         "https://blogbak.roccoshi.top/tiny-tools/polyfills-es5.cd31f624d4136c8e4ecb.js",
@@ -988,11 +988,11 @@
     "https://blogbak.roccoshi.top/tiny-tools/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
     "https://blogbak.roccoshi.top/tiny-tools/fontawesome-webfont.f691f37e57f04c152e23.woff": "28b782240b3e76db824e12c02754a9731a167527",
     "https://blogbak.roccoshi.top/tiny-tools/hue.f8505bd4d6f3e3aa435b.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "https://blogbak.roccoshi.top/tiny-tools/index.html": "95a1f5f7649af4cf8a02eded870858c46cbe10ab",
+    "https://blogbak.roccoshi.top/tiny-tools/index.html": "60010997dba48d21ebeff188e14aa62a587619f7",
     "https://blogbak.roccoshi.top/tiny-tools/line.39c65dcc08f7edb347b6.gif": "a2af20bd160ca9cfc2c85527663ff7429267519a",
     "https://blogbak.roccoshi.top/tiny-tools/loading.9347db5956a89b0bab38.gif": "72998a116936156dc7cace0606dab499fe4f3ce8",
-    "https://blogbak.roccoshi.top/tiny-tools/main-es2015.1d5418037e9c4e4c15f5.js": "51a2c7215f60370c291c40f146b17096766ef31a",
-    "https://blogbak.roccoshi.top/tiny-tools/main-es5.1d5418037e9c4e4c15f5.js": "7be9a6f35ad7d3a72067504c69820121b41b19df",
+    "https://blogbak.roccoshi.top/tiny-tools/main-es2015.6266163dd205d06ee35f.js": "96412394e619838203aadc5d904a229f28d68852",
+    "https://blogbak.roccoshi.top/tiny-tools/main-es5.6266163dd205d06ee35f.js": "c9bd12adf517678263aa54036aba676a3130d12b",
     "https://blogbak.roccoshi.top/tiny-tools/manifest.webmanifest": "5161a360253ef48832f7dbc2870ddc9d1ad93d9b",
     "https://blogbak.roccoshi.top/tiny-tools/open-sans-v15-latin-300.252a41f69d4c320154a1.ttf": "861b3593521709d9fa8a8efb6f40817dd7fa9337",
     "https://blogbak.roccoshi.top/tiny-tools/open-sans-v15-latin-300.2aeabc9e8ed0aef227d7.eot": "7ee41fc56711a91b386b72d60d42feb9b4148f50",

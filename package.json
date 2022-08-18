@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/schematics": "^14.1.3",
     "@angular/animations": "^9.1.13",
     "@angular/cdk": "9.2.4",
     "@angular/common": "~9.1.13",
@@ -20,6 +21,7 @@
     "@angular/platform-browser": "~9.1.13",
     "@angular/platform-browser-dynamic": "~9.1.13",
     "@angular/router": "~9.1.13",
+    "@angular/service-worker": "~9.1.13",
     "@fullcalendar/core": "^5.10.1",
     "@types/d3": "^7.1.0",
     "@types/deflate-js": "^0.2.0",

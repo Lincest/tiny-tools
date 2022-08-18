@@ -26,7 +26,8 @@
                 "glob": "**/*",
                 "input": "node_modules/ace-builds/src-min",
                 "output": "./assets/ace-builds/"
-              }
+              },
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.css",
@@ -67,7 +68,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -97,10 +100,11 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -138,6 +142,6 @@
   },
   "defaultProject": "tiny-tools",
   "cli": {
-    "analytics": "8291cccc-12dd-4097-96fd-53b7a22f3d20"
+    "analytics": "8291cccc-12dd-4097-96fd-53b7a22f3d20",
   }
 }

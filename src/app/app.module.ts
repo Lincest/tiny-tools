@@ -28,6 +28,8 @@ import {FullScreenSlideComponent} from './components/markdown-to-slide/full-scre
 import {HttpClientModule} from '@angular/common/http';
 import { TimeFormatComponent } from './components/time-format/time-format.component';
 import { UrlPastebinComponent } from './components/url-pastebin/url-pastebin.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { UrlPastebinComponent } from './components/url-pastebin/url-pastebin.com
         StepsModule,
         InputTextModule,
         MessageModule,
-        InputSwitchModule
+        InputSwitchModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
   providers: [
     {

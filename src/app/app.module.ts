@@ -30,6 +30,7 @@ import { TimeFormatComponent } from './components/time-format/time-format.compon
 import { UrlPastebinComponent } from './components/url-pastebin/url-pastebin.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ErrPageComponent } from './err-page/err-page.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +43,12 @@ import { environment } from '../environments/environment';
     FullScreenSlideComponent,
     TimeFormatComponent,
     UrlPastebinComponent,
+    ErrPageComponent,
   ],
     imports: [
         HighlightModule,
         BrowserAnimationsModule,
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
         NgxEchartsModule.forRoot({
             echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
